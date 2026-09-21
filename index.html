@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>INCBA — Consultora Tecnológica</title>
+  <meta name="description" content="Agendá tu diagnóstico gratuito y encontrá todos los canales de INCBA: sitios web, WhatsApp de Argentina y Chile, LinkedIn, Facebook e Instagram.">
+  <meta name="theme-color" content="#0B1C2D">
+  <link rel="canonical" href="https://redes.incba.com.ar/">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="INCBA">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:title" content="INCBA — Consultora Tecnológica">
+  <meta property="og:description" content="Conectamos sistemas. Aceleramos negocios. Agendá tu diagnóstico gratuito.">
+  <meta property="og:url" content="https://redes.incba.com.ar/">
+  <meta property="og:image" content="https://redes.incba.com.ar/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* Colores y tipografía: los mismos de incba.com.ar */
+    :root {
+      --navy: #0B1C2D;
+      --navy-2: #0F172A;
+      --navy-3: #0D2137;
+      --accent: #00C896;
+      --txt: #E2E8F0;
+      --txt-2: #94A3B8;
+      --superficie: rgba(255, 255, 255, .045);
+      --borde: rgba(255, 255, 255, .10);
+      --radio: 12px;
+      --t: .25s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+
+    html { background: var(--navy); -webkit-text-size-adjust: 100%; }
+
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: max(44px, env(safe-area-inset-top)) 16px max(24px, env(safe-area-inset-bottom));
+      font-family: 'Manrope', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      color: var(--txt);
+      background:
+        radial-gradient(50rem 26rem at 50% -8%, rgba(0, 200, 150, .14), transparent 70%),
+        linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 50%, var(--navy-3) 100%);
+      background-attachment: fixed;
+    }
+
+    /* Grilla sutil, como en la web */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      -webkit-mask-image: radial-gradient(ellipse at 50% 0%, #000 25%, transparent 70%);
+              mask-image: radial-gradient(ellipse at 50% 0%, #000 25%, transparent 70%);
+    }
+
+    main { position: relative; width: 100%; max-width: 440px; }
+
+    /* ---------- Perfil ---------- */
+    .perfil { text-align: center; margin-bottom: 30px; }
+
+    .avatar {
+      display: block;
+      width: 112px;
+      height: 112px;
+      margin: 0 auto 18px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 3px var(--navy), 0 0 0 5px var(--accent), 0 14px 36px rgba(0, 200, 150, .28);
+    }
+
+    h1 { font-size: 1.65rem; font-weight: 800; letter-spacing: .03em; }
+    .rubro { margin-top: 2px; color: var(--accent); font-size: .95rem; font-weight: 700; }
+    .lema { margin-top: 10px; color: var(--txt-2); font-size: .9rem; font-weight: 500; }
+
+    /* ---------- Botones ---------- */
+    .links { display: flex; flex-direction: column; gap: 12px; }
+
+    .btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 56px;
+      padding: 14px 18px;
+      border: 1px solid var(--borde);
+      border-radius: var(--radio);
+      background: var(--superficie);
+      color: var(--txt);
+      font-size: .98rem;
+      font-weight: 700;
+      text-decoration: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform var(--t), background var(--t), border-color var(--t), box-shadow var(--t);
+    }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(0, 200, 150, .55); background: rgba(0, 200, 150, .08); }
+    .btn:active { transform: translateY(0); }
+    .btn svg { flex: none; width: 20px; height: 20px; }
+    .btn .ir { margin-left: auto; opacity: .55; }
+
+    .btn:focus-visible,
+    .redes a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    /* Destacado: diagnóstico gratuito */
+    .btn--destacado {
+      position: relative;
+      overflow: hidden;
+      min-height: 76px;
+      padding: 16px 20px;
+      border-color: var(--accent);
+      background: var(--accent);
+      color: var(--navy);
+      box-shadow: 0 12px 32px -10px rgba(0, 200, 150, .6);
+    }
+    .btn--destacado:hover { background: #14D6A4; border-color: #14D6A4; box-shadow: 0 16px 36px -10px rgba(0, 200, 150, .75); }
+    .btn--destacado .ir { opacity: .8; }
+    .btn__texto { display: flex; flex-direction: column; line-height: 1.25; }
+    .btn__texto strong { font-size: 1.06rem; font-weight: 800; }
+    .btn__texto small { font-size: .82rem; font-weight: 600; opacity: .78; }
+    .btn--destacado::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 35%, rgba(255, 255, 255, .38) 50%, transparent 65%);
+      transform: translateX(-120%);
+      animation: brillo 5s ease-in-out 1.5s infinite;
+    }
+    @keyframes brillo {
+      0%, 62% { transform: translateX(-120%); }
+      86%, 100% { transform: translateX(120%); }
+    }
+
+    /* Grupos Argentina / Chile */
+    .grupo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 10px 2px -2px;
+      color: var(--txt-2);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .grupo svg { width: 15px; height: 15px; color: var(--accent); }
+    .par { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .par .btn { justify-content: center; padding: 14px 10px; }
+    .bandera { flex: none; width: 22px; height: 15px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .2); }
+
+    /* ---------- Íconos de redes ---------- */
+    .redes { display: flex; justify-content: center; gap: 14px; margin-top: 28px; }
+    .redes a {
+      display: grid;
+      place-items: center;
+      width: 50px;
+      height: 50px;
+      border: 1px solid var(--borde);
+      border-radius: 50%;
+      background: var(--superficie);
+      color: var(--txt);
+      transition: transform var(--t), background var(--t), color var(--t), border-color var(--t);
+    }
+    .redes a:hover { transform: translateY(-2px); background: var(--accent); border-color: var(--accent); color: var(--navy); }
+    .redes svg { width: 21px; height: 21px; }
+
+    footer { margin-top: auto; padding-top: 40px; color: var(--txt-2); font-size: .78rem; text-align: center; }
+    footer a { color: inherit; }
+
+    /* Entrada escalonada */
+    .perfil, .links > *, .redes { animation: entrar .55s cubic-bezier(.2, .7, .2, 1) both; }
+    .links > :nth-child(1) { animation-delay: .08s; }
+    .links > :nth-child(2), .links > :nth-child(3) { animation-delay: .14s; }
+    .links > :nth-child(4), .links > :nth-child(5) { animation-delay: .2s; }
+    .links > :nth-child(6) { animation-delay: .26s; }
+    .redes { animation-delay: .32s; }
+    @keyframes entrar { from { opacity: 0; transform: translateY(10px); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="perfil">
+      <img class="avatar" src="img/avatar.webp" width="112" height="112" alt="INCBA">
+      <h1>INCBA</h1>
+      <p class="rubro">Consultora Tecnológica</p>
+      <p class="lema">Conectamos sistemas. Aceleramos negocios.</p>
+    </header>
+
+    <!-- =====================================================================
+         LINKS — para cambiar uno, editá su href; para sacarlo, borrá su <a>.
+         ===================================================================== -->
+    <nav class="links" aria-label="Enlaces de INCBA">
+
+      <!-- Destacado -->
+      <a class="btn btn--destacado" href="https://calendly.com/felipe-incba/30min">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></svg>
+        <span class="btn__texto"><strong>Agendá tu diagnóstico gratuito</strong><small>Reunión de 30 minutos · sin costo</small></span>
+        <svg class="ir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <!-- Sitios web -->
+      <p class="grupo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Sitios web</p>
+      <div class="par">
+        <a class="btn" href="https://incba.com.ar" aria-label="Sitio web de INCBA Argentina">
+          <svg class="bandera" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#74ACDF"/><rect y="6.67" width="30" height="6.67" fill="#fff"/><circle cx="15" cy="10" r="2.3" fill="#F6B40E"/></svg>
+          Argentina
+        </a>
+        <a class="btn" href="https://incba.cl" aria-label="Sitio web de INCBA Chile">
+          <svg class="bandera" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#D52B1E"/><rect width="30" height="10" fill="#fff"/><rect width="10" height="10" fill="#0039A6"/><path d="M5 2l.68 2.07h2.17l-1.76 1.29.67 2.07L5 6.15 3.24 7.43l.67-2.07-1.76-1.29h2.17z" fill="#fff"/></svg>
+          Chile
+        </a>
+      </div>
+
+      <!-- WhatsApp -->
+      <p class="grupo"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35M12.05 21.78h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.69 1.45h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.17-1.24-6.16-3.49-8.41"/></svg>WhatsApp</p>
+      <div class="par">
+        <!-- Argentina: el mismo número que publica incba.com.ar -->
+        <a class="btn" href="https://wa.me/5493517422702?text=Hola%20INCBA!%20Quiero%20hacer%20una%20consulta." aria-label="WhatsApp de INCBA Argentina">
+          <svg class="bandera" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#74ACDF"/><rect y="6.67" width="30" height="6.67" fill="#fff"/><circle cx="15" cy="10" r="2.3" fill="#F6B40E"/></svg>
+          Argentina
+        </a>
+        <!-- Chile: el mismo número que publica incba.cl -->
+        <a class="btn" href="https://wa.me/56957400433?text=Hola%20INCBA!%20Quiero%20hacer%20una%20consulta." aria-label="WhatsApp de INCBA Chile">
+          <svg class="bandera" viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#D52B1E"/><rect width="30" height="10" fill="#fff"/><rect width="10" height="10" fill="#0039A6"/><path d="M5 2l.68 2.07h2.17l-1.76 1.29.67 2.07L5 6.15 3.24 7.43l.67-2.07-1.76-1.29h2.17z" fill="#fff"/></svg>
+          Chile
+        </a>
+      </div>
+
+      <!-- LinkedIn -->
+      <a class="btn" href="https://www.linkedin.com/company/incba-consultora-tecnol%C3%B3gica/">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        LinkedIn
+        <svg class="ir" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </nav>
+
+    <!-- Redes como íconos -->
+    <nav class="redes" aria-label="Redes sociales">
+      <a href="https://www.facebook.com/incbaconsultora" aria-label="Facebook de INCBA">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.1 23.69v-7.98H6.63v-3.67H9.1v-1.58c0-4.09 1.85-5.98 5.86-5.98.4 0 .96.04 1.47.1.44.05.83.12 1.14.2v3.32c-.17-.02-.46-.03-.65-.04-.24-.01-.49-.01-.73-.01-.71 0-1.26.1-1.68.31-.28.14-.52.36-.68.62-.26.42-.37 1-.37 1.75v1.3h3.92l-.39 2.1-.29 1.57h-3.25v8.24C19.4 23.24 24 18.18 24 12.04c0-6.63-5.37-12-12-12S0 5.41 0 12.04c0 5.63 3.87 10.35 9.1 11.65z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/incbaconsultora" aria-label="Instagram de INCBA">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></svg>
+      </a>
+    </nav>
+  </main>
+
+  <footer>© <span id="anio">2026</span> INCBA · <a href="https://incba.com.ar">incba.com.ar</a></footer>
+  <script>document.getElementById('anio').textContent = new Date().getFullYear();</script>
+</body>
+</html>
